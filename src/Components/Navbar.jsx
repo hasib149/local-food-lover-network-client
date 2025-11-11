@@ -76,8 +76,8 @@ const Navbar = () => {
       </div>
 
       {/* Navbar End */}
-      <div className="navbar-end">
-        <Link
+      <div className="navbar-end gap-2">
+        <Link to="/login"
           className="
   relative overflow-hidden group
   px-6 py-1 text-xl font-semibold uppercase tracking-wide
@@ -88,7 +88,20 @@ const Navbar = () => {
 "
         >
           <span className="relative z-10">Login</span>
-          <span className="absolute left-[-40px] top-0 h-full w-0 bg-green-700 skew-x-[45deg] transition-all duration-700 group-hover:w-[250%] -z-10"></span>
+          <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
+        </Link>
+        <Link to="/login"
+          className="
+  relative overflow-hidden group
+  px-6 py-1 text-xl font-semibold uppercase tracking-wide
+  text-green-700  outline outline-green-600
+  transition duration-700 hover:scale-105 hover:text-white hover:outline-green-600
+  hover:shadow-[4px_5px_17px_-4px_#268391]
+  rounded-md
+"
+        >
+          <span className="relative z-10">Register</span>
+          <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
         </Link>
       </div>
     </div>
