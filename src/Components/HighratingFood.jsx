@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Loader from "./Loader";
+import Card from "./Card";
 
 const HighratingFood = () => {
   const [foods, setFoods] = useState([]);
@@ -21,21 +23,13 @@ const HighratingFood = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading...</p>; 
+    return <Loader></Loader>;
   }
   return (
     <div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid gap-4  grid-cols-1   sm:grid-cols-2  md:grid-cols-3  lg:grid-cols-3 space-y-8 ">
         {foods.map((food) => (
-          <div key={food._id} className="border p-4 rounded">
-            <img
-              src={food.photo}
-              alt={food.name}
-              className="w-full h-40 object-cover"
-            />
-            <h2 className="font-bold text-lg">{food.name}</h2>
-            <p>Rating: {food.rating}</p>
-          </div>
+          <Card key={food._id} food={food} />
         ))}
       </div>
     </div>

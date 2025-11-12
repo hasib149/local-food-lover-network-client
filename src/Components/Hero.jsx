@@ -37,7 +37,7 @@ const Hero = () => {
   }, [slides.length]);
 
   return (
-    <section className="w-11/12 mx-auto relative  min-h-[80vh] bg-white text-black overflow-hidden flex items-center justify-center">
+    <section className="bg-green-50 relative  min-h-[80vh]  text-black overflow-hidden flex items-center justify-center">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}

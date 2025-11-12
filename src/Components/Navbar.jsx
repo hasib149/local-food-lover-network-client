@@ -64,7 +64,7 @@ const Navbar = () => {
 
         <Link
           to="/"
-          className="flex items-center gap-2 text-3xl font-bold text-gray-600"
+          className="hidden sm:flex items-center gap-2 text-3xl font-bold text-gray-600"
         >
           Food
           <img
