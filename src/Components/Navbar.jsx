@@ -36,9 +36,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 border-b border-green-300 w-11/12 mx-auto">
-      {/* Navbar Start */}
       <div className="navbar-start">
-        {/* Dropdown for mobile */}
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
             <svg
@@ -64,20 +62,27 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {/* Logo / Brand Name */}
-        <Link to="/" className="text-3xl font-bold text-gray-600">
-          Food <span className="text-green-500">Lovers</span>
+        <Link
+          to="/"
+          className="flex items-center gap-2 text-3xl font-bold text-gray-600"
+        >
+          Food
+          <img
+            src="/chicken-skewers-with-slices-apples-chili.png"
+            alt="Food Lovers Logo"
+            className="w-13 h-14 object-contain inline-block"
+          />
+          <span className="text-green-500">Lovers</span>
         </Link>
       </div>
 
-      {/* Navbar Center */}
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
 
-      {/* Navbar End */}
       <div className="navbar-end gap-2">
-        <Link to="/login"
+        <Link
+          to="/login"
           className="
   relative overflow-hidden group
   px-6 py-1 text-xl font-semibold uppercase tracking-wide
@@ -90,7 +95,8 @@ const Navbar = () => {
           <span className="relative z-10">Login</span>
           <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
         </Link>
-        <Link to="/login"
+        <Link
+          to="/login"
           className="
   relative overflow-hidden group
   px-6 py-1 text-xl font-semibold uppercase tracking-wide
