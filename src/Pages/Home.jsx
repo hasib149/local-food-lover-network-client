@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../Components/Hero";
 import HighratingFood from "../Components/HighratingFood";
+import TopFood from "../Components/TopFood";
 
 const Home = () => {
   return (
@@ -18,6 +19,9 @@ const Home = () => {
         <div className="pt-16">
           <HighratingFood></HighratingFood>
         </div>
+      </div>
+      <div>
+        <TopFood></TopFood>
       </div>
     </div>
   );
