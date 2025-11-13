@@ -3,6 +3,7 @@ import Hero from "../Components/Hero";
 import HighratingFood from "../Components/HighratingFood";
 import TopFood from "../Components/TopFood";
 import Join from "../Components/Join";
+import Ourstory from "../Components/Ourstory";
 
 const Home = () => {
   return (
@@ -23,6 +24,9 @@ const Home = () => {
       </div>
       <div>
         <TopFood></TopFood>
+      </div>
+      <div>
+        <Ourstory></Ourstory>
       </div>
       <div>
         <Join></Join>

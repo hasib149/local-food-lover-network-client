@@ -3,7 +3,7 @@ import React from "react";
 const TopFood = () => {
   return (
     <section className="bg-green-50 py-16 px-6">
-      <h2 className="text-3xl font-bold text-center text-green-700 mb-10">
+      <h2 className="text-4xl font-bold text-center text-green-700 mb-10">
         Meet Our Top Food Critics
       </h2>
 
