@@ -5,7 +5,7 @@ import { useNavigate } from "react-router";
 
 const Registar = () => {
   const navigate = useNavigate();
-  const { registerWithEmail, loginWithGoogle, updateUserProfile } =
+  const { registerWithEmail, loginWithGoogle, updateUserProfile, loading } =
     useContext(AuthContex);
 
   const handleRegister = (e) => {
@@ -109,6 +109,7 @@ const Registar = () => {
               name="name"
               placeholder="Enter your name"
               className="mt-1 w-full px-5 py-3 rounded-2xl bg-white border-transparent shadow-[0_10px_10px_-5px_#cff0ff] focus:border-[#12B1D1] focus:outline-none"
+              disabled={loading}
             />
           </div>
 
@@ -125,6 +126,7 @@ const Registar = () => {
               name="email"
               placeholder="Enter your email"
               className="mt-1 w-full px-5 py-3 rounded-2xl bg-white border-transparent shadow-[0_10px_10px_-5px_#cff0ff] focus:border-[#12B1D1] focus:outline-none"
+              disabled={loading}
             />
           </div>
 
@@ -141,6 +143,7 @@ const Registar = () => {
               name="photo"
               placeholder="Enter photo URL"
               className="mt-1 w-full px-5 py-3 rounded-2xl bg-white border-transparent shadow-[0_10px_10px_-5px_#cff0ff] focus:border-[#12B1D1] focus:outline-none"
+              disabled={loading}
             />
           </div>
 
@@ -157,6 +160,7 @@ const Registar = () => {
               name="password"
               placeholder="Enter password"
               className="mt-1 w-full px-5 py-3 rounded-2xl bg-white border-transparent shadow-[0_10px_10px_-5px_#cff0ff] focus:border-[#12B1D1] focus:outline-none"
+              disabled={loading}
             />
           </div>
 
@@ -173,14 +177,18 @@ const Registar = () => {
               name="confirmPassword"
               placeholder="Confirm password"
               className="mt-1 w-full px-5 py-3 rounded-2xl bg-white border-transparent shadow-[0_10px_10px_-5px_#cff0ff] focus:border-[#12B1D1] focus:outline-none"
+              disabled={loading}
             />
           </div>
 
           <button
             type="submit"
-            className="w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform"
+            disabled={loading}
+            className={`w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-2 ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
           >
-            Register
+            {loading ? "Registering..." : "Sign Up"}
           </button>
         </form>
 
@@ -190,26 +198,14 @@ const Registar = () => {
             <button
               onClick={handleGoogleLogin}
               type="button"
-              className="w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-3"
+              disabled={loading}
+              className={`w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-3 ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="1.2em"
-                viewBox="0 0 488 512"
-                className="inline-block"
-                fill="currentColor"
-              >
-                <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
-              </svg>
-              <span>Continue with Google</span>
+              {loading ? "Loading..." : "Continue with Google"}
             </button>
           </div>
-        </div>
-
-        <div className="mt-5 text-center">
-          <a href="#" className="text-sm text-blue-600 hover:underline">
-            Learn user licence agreement
-          </a>
         </div>
       </div>
     </div>

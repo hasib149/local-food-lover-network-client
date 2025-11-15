@@ -26,22 +26,33 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const registerWithEmail = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password).finally(() =>
+      setLoading(false)
+    );
   };
 
   const loginWithEmail = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password);
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password).finally(() =>
+      setLoading(false)
+    );
   };
 
   const loginWithGoogle = () => {
-    return signInWithPopup(auth, provider);
+    setLoading(true);
+    return signInWithPopup(auth, provider).finally(() => setLoading(false));
   };
 
   const logout = () => {
-    return signOut(auth);
+    setLoading(true);
+    return signOut(auth).finally(() => setLoading(false));
   };
   const updateUserProfile = (profile) => {
-    return updateProfile(auth.currentUser, profile);
+    setLoading(true);
+    return updateProfile(auth.currentUser, profile).finally(() =>
+      setLoading(false)
+    );
   };
   const value = {
     user,

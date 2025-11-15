@@ -1,8 +1,23 @@
-import React from "react";
-import { Link } from "react-router";
-import { NavLink } from "react-router";
+import React, { useContext } from "react";
+import { AuthContex } from "../Contex/AuthContex";
+import { Link, NavLink, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, logout, loading } = useContext(AuthContex);
+  const navigate = useNavigate();
+
+  const handlelogout = async () => {
+    try {
+      await logout();
+      toast.success("Log out successful!");
+      navigate("/"); 
+    } catch (error) {
+      console.error("Logout failed:", error);
+      toast.error("Logout failed!");
+    }
+  };
+
   const links = (
     <>
       <li>
@@ -10,9 +25,9 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             `px-3 py-2 rounded-md text-gray-600 font-medium 
-          hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
-            isActive ? "text-green-500 " : ""
-          }`
+            hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
+              isActive ? "text-green-500" : ""
+            }`
           }
         >
           Home
@@ -23,9 +38,9 @@ const Navbar = () => {
           to="/about"
           className={({ isActive }) =>
             `px-3 py-2 rounded-md text-gray-600 font-medium 
-          hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
-            isActive ? "text-green-500 " : ""
-          }`
+            hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
+              isActive ? "text-green-500" : ""
+            }`
           }
         >
           About
@@ -56,7 +71,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={-1}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-52 p-2 shadow"
           >
             {links}
           </ul>
@@ -81,34 +96,55 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end gap-2">
-        <Link
-          to="/login"
-          className="
-  relative overflow-hidden group
-  px-6 py-1 text-xl font-semibold uppercase tracking-wide
-  text-green-700  outline outline-green-600
-  transition duration-700 hover:scale-105 hover:text-white hover:outline-green-600
-  hover:shadow-[4px_5px_17px_-4px_#268391]
-  rounded-md
-"
-        >
-          <span className="relative z-10">Login</span>
-          <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
-        </Link>
-        <Link
-          to="/registar"
-          className="
-  relative overflow-hidden group
-  px-6 py-1 text-xl font-semibold uppercase tracking-wide
-  text-green-700  outline outline-green-600
-  transition duration-700 hover:scale-105 hover:text-white hover:outline-green-600
-  hover:shadow-[4px_5px_17px_-4px_#268391]
-  rounded-md
-"
-        >
-          <span className="relative z-10">Register</span>
-          <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
-        </Link>
+        {loading ? (
+          <div className="w-10 h-10 border-4 border-green-300 border-t-green-500 rounded-full animate-spin"></div>
+        ) : user ? (
+          <>
+            <img
+              src={user.photoURL || "/default-user.png"}
+              alt={user.displayName || "User"}
+              className="w-10 h-10 rounded-full object-cover"
+            />
+            <button
+              onClick={handlelogout}
+              className="px-6 py-1 text-xl font-semibold text-white bg-red-500 rounded-md hover:bg-red-600 transition"
+            >
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link
+              to="/login"
+              className="
+              relative overflow-hidden group
+              px-6 py-1 text-xl font-semibold uppercase tracking-wide
+              text-green-700 outline outline-green-600
+              transition duration-700 hover:scale-105 hover:text-white hover:outline-green-600
+              hover:shadow-[4px_5px_17px_-4px_#268391]
+              rounded-md
+              "
+            >
+              <span className="relative z-10">Login</span>
+              <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
+            </Link>
+
+            <Link
+              to="/registar"
+              className="
+              relative overflow-hidden group
+              px-6 py-1 text-xl font-semibold uppercase tracking-wide
+              text-green-700 outline outline-green-600
+              transition duration-700 hover:scale-105 hover:text-white hover:outline-green-600
+              hover:shadow-[4px_5px_17px_-4px_#268391]
+              rounded-md
+              "
+            >
+              <span className="relative z-10">Register</span>
+              <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
+            </Link>
+          </>
+        )}
       </div>
     </div>
   );
