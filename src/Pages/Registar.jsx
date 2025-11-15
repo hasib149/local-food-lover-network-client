@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContex } from "../Contex/AuthContex";
+import { toast } from "react-toastify";
 
 const Form = () => {
+  const { registerWithEmail } = useContext(AuthContex);
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const photo = e.target.photo.value;
+    const password = e.target.password.value;
+    const confirmPassword = e.target.confirmPassword.value;
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+    if (!passwordRegex.test(password)) {
+      toast.error(
+        "Password must be at least 6 characters long and include uppercase and lowercase letters."
+      );
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      toast.error("Passwords do not match!");
+      return;
+    }
+
+    registerWithEmail(email, password)
+      .then((result) => {
+        toast.success("Signup successfully!");
+      })
+      .catch((error) => {
+      });
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#eef4ff] p-5">
       <div className="max-w-md w-full bg-linear-to-b from-white to-[#f4f7fb] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)]">
@@ -8,7 +41,7 @@ const Form = () => {
           Sign Up
         </h2>
 
-        <form className="mt-6 space-y-4">
+        <form onSubmit={handleRegister} className="mt-6 space-y-4">
           <div>
             <label
               htmlFor="name-input"
@@ -82,7 +115,7 @@ const Form = () => {
           </div>
 
           <button
-            type="button"
+            type="submit"
             className="w-full mt-5 py-3 rounded-2xl bg-linear-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform"
           >
             Register
