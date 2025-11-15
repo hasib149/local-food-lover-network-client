@@ -96,7 +96,7 @@ const Navbar = () => {
           <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
         </Link>
         <Link
-          to="/login"
+          to="/registar"
           className="
   relative overflow-hidden group
   px-6 py-1 text-xl font-semibold uppercase tracking-wide
