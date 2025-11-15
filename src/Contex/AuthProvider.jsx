@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.config";
 import { AuthContex } from "./AuthContex";
@@ -39,7 +40,9 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     return signOut(auth);
   };
-
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
   const value = {
     user,
     loading,
@@ -47,6 +50,7 @@ export const AuthProvider = ({ children }) => {
     loginWithEmail,
     loginWithGoogle,
     logout,
+    updateUserProfile,
   };
 
   return <AuthContex.Provider value={value}>{children}</AuthContex.Provider>;
