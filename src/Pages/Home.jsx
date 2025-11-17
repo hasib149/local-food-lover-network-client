@@ -11,7 +11,7 @@ const Home = () => {
       <Hero></Hero>
       <div className="pt-20 w-11/12 mx-auto">
         <div className="text-center my-8 px-4 sm:px-6 lg:px-0">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
+          <h2 className="text-3xl text-green-600 sm:text-4xl md:text-5xl font-bold text-gray-800 dark:text-white">
             🔥 Top Rated Dishes You Must Try! 🔥
           </h2>
           <p className="mt-2 text-lg sm:text-xl md:text-2xl text-gray-500 dark:text-gray-300">

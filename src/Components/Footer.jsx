@@ -8,7 +8,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 px-6 sm:px-12">
+    <footer className="bg-green-800 text-white py-10 px-6 sm:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-10">
         <aside className="md:w-1/3 text-gray-300 space-y-4">
           <div className="flex items-center gap-3">
@@ -115,7 +115,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-10 pt-5 border-t border-gray-800 text-center text-gray-500 text-sm">
+      <div className="mt-10 pt-5 border-t border-gray-800 text-center  text-sm">
         © {new Date().getFullYear()} Local Food Lovers Network. All rights
         reserved.
       </div>

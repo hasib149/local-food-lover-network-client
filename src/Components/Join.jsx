@@ -16,7 +16,7 @@ const Join = () => {
           <input
             type="email"
             placeholder="Enter your email"
-            className="px-5 py-3 rounded-full w-full sm:w-80 focus:outline-none focus:ring-2 ring-green-300 transition"
+            className="px-5 py-3 text-white rounded-full w-full sm:w-80 outline-none ring-3 ring-green-300 transition"
           />
           <button
             type="submit"

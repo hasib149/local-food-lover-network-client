@@ -48,7 +48,7 @@ const Hero = () => {
           className="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 px-6 py-10"
         >
           <div className="flex-1 space-y-5 text-center md:text-left">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl text-green-600 font-bold leading-tight">
               {slides[current].title}
             </h1>
             <p className="text-lg sm:text-xl text-gray-700">
@@ -57,7 +57,7 @@ const Hero = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="relative overflow-hidden group px-8 py-3 text-lg font-semibold uppercase tracking-wide bg-[#2c9caf] text-white rounded-full outline outline-[#2c9caf] transition duration-800 hover:bg-green-700 hover:text-white hover:outline-green-700 hover:shadow-[4px_5px_17px_-4px_#268391]"
+              className="relative overflow-hidden group px-8 py-3 text-lg font-semibold uppercase tracking-wide bg-green-600 text-white rounded-full outline outline-green-700 transition duration-800 hover:bg-green-700 hover:text-white hover:outline-green-700 hover:shadow-[4px_5px_17px_-4px_#268391]"
             >
               <span className="relative z-10">{slides[current].button}</span>
               <span className="absolute -left-10 top-0 h-full w-0 bg-green-700 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
@@ -96,13 +96,12 @@ const Hero = () => {
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`relative w-4 h-4 rounded-full overflow-hidden outline outline-gray-300 group transition-all duration-700 ${
-              i === current ? "bg-green-500" : "bg-gray-300"
-            }`}
-          >
-            <span className="absolute -left-10 top-0 w-0 h-full bg-green-500 skew-x-45 transition-all duration-700 group-hover:w-[250%] -z-10"></span>
-            <span className="relative z-10 block w-full h-full"></span>
-          </button>
+            className="
+    px-3 py-1 bg-white text-green-700 font-semibold rounded-xl shadow-xl 
+    hover:bg-green-700 hover:text-white transform hover:-translate-y-1 
+    transition-all duration-300
+  "
+          ></button>
         ))}
       </div>
     </section>
@@ -110,8 +109,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-
-
-

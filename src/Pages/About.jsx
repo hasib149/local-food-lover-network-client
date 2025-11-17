@@ -79,7 +79,7 @@ const About = () => {
 
   return (
     <div className="w-full bg-linear-to-t from-green-100 to-green-50" style={{ marginTop: '0px' }}>
-      <h2 className="text-5xl font-bold text-center my-8">
+      <h2 className="text-5xl font-bold text-center my-8 text-green-600">
         Meet Our Super Reviewers
       </h2>
 

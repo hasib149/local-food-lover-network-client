@@ -89,9 +89,10 @@ const Registar = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#eef4ff] p-5">
-      <div className="max-w-md w-full bg-gradient-to-b from-white to-[#f4f7fb] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)]">
-        <h2 className="text-center text-3xl font-extrabold text-[#1089d3]">
+    <div className="min-h-screen flex items-center justify-center bg-green-100 p-5">
+      <div className="max-w-md w-full bg-gradient-to-b from-white to-[#e6f9ec]
+ rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)]">
+        <h2 className="text-center text-3xl font-extrabold text-green-600">
           Sign Up
         </h2>
 
@@ -184,9 +185,11 @@ const Registar = () => {
           <button
             type="submit"
             disabled={loading}
-            className={`w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-2 ${
-              loading ? "opacity-50 cursor-not-allowed" : ""
-            }`}
+            className={`w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#0e7a32]
+
+ text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-2 ${
+   loading ? "opacity-50 cursor-not-allowed" : ""
+ }`}
           >
             {loading ? "Registering..." : "Sign Up"}
           </button>
@@ -199,7 +202,9 @@ const Registar = () => {
               onClick={handleGoogleLogin}
               type="button"
               disabled={loading}
-              className={`w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-3 ${
+              className={`w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#0e7a32]
+
+ text-white font-bold shadow-[0_20px_10px_-15px_rgba(133,189,215,0.7)] hover:scale-105 transition-transform flex items-center justify-center gap-3 ${
                 loading ? "opacity-50 cursor-not-allowed" : ""
               }`}
             >

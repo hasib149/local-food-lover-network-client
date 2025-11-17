@@ -31,16 +31,15 @@ const Login = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-[#eef4ff] p-5">
-      {/* Full page loader */}
+    <div className="relative min-h-screen flex items-center justify-center bg-green-100 p-5">
       {loading && (
         <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
           <div className="w-20 h-20 border-8 border-t-8 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
         </div>
       )}
 
-      <div className="max-w-md w-full bg-gradient-to-b from-white to-[#f4f7fb] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)] relative z-10">
-        <h2 className="text-center text-3xl font-extrabold text-[#1089d3]">Sign In</h2>
+      <div className="max-w-md w-full  bg-gradient-to-b from-white to-[#e6f9ec] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)] relative z-10">
+        <h2 className="text-center text-3xl font-extrabold text-green-600">Sign In</h2>
 
         <form onSubmit={handleLogin} className="mt-6 space-y-4">
           <div>
@@ -76,7 +75,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-5 py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-md hover:scale-105 transform transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full mt-5 py-3 rounded-2xl  bg-gradient-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Logging in..." : "Log In"}
           </button>
@@ -89,7 +88,7 @@ const Login = () => {
               type="button"
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#1093d3] to-[#12b1d1] text-white font-bold shadow-md hover:scale-105 transform transition-transform flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span>{loading ? "Please wait..." : "Continue with Google"}</span>
             </button>
@@ -97,7 +96,7 @@ const Login = () => {
         </div>
 
         <div className="mt-5 text-center">
-          <a href="#" className="text-sm text-blue-600 hover:underline">
+          <a href="#" className="text-sm text-green-600 hover:underline">
             Learn user licence agreement
           </a>
         </div>
