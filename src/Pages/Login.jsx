@@ -1,20 +1,21 @@
 import React, { useContext, useState } from "react";
 import { AuthContex } from "../Contex/AuthContex";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router";
+import { useNavigate, useSearchParams } from "react-router";
 
 const Login = () => {
   const { loginWithEmail, loginWithGoogle, loading } = useContext(AuthContex);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
+  const [searchParams] = useSearchParams();
+  const redirect = searchParams.get("redirect") || "/";
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
       await loginWithEmail(email, password);
       toast.success("Login successful!");
-      navigate("/");
+      navigate(redirect, { replace: true });
     } catch (error) {
       toast.error(error.message);
     }
@@ -39,11 +40,16 @@ const Login = () => {
       )}
 
       <div className="max-w-md w-full  bg-gradient-to-b from-white to-[#e6f9ec] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)] relative z-10">
-        <h2 className="text-center text-3xl font-extrabold text-green-600">Sign In</h2>
+        <h2 className="text-center text-3xl font-extrabold text-green-600">
+          Sign In
+        </h2>
 
         <form onSubmit={handleLogin} className="mt-6 space-y-4">
           <div>
-            <label htmlFor="email-input" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="email-input"
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
             <input
@@ -58,7 +64,10 @@ const Login = () => {
           </div>
 
           <div>
-            <label htmlFor="password-input" className="block text-sm font-medium text-gray-700">
+            <label
+              htmlFor="password-input"
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
             <input

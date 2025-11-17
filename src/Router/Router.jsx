@@ -7,6 +7,7 @@ import Errorpage from "../Components/Errorpage";
 import Registar from "../Pages/Registar";
 import MyReviews from "../Pages/MyReviews";
 import AddReview from "../Pages/AddReview";
+import ProtectedRoute from "../Components/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -31,11 +32,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/my-review",
-        element: <MyReviews></MyReviews>,
+        element: (
+          <ProtectedRoute>
+            <MyReviews></MyReviews>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/add-review",
-        element: <AddReview></AddReview>,
+        element: (
+          <ProtectedRoute>
+            <AddReview></AddReview>
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/*",
