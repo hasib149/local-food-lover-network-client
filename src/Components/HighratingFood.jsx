@@ -26,8 +26,11 @@ const HighratingFood = () => {
     return <Loader></Loader>;
   }
   return (
-    <div>
-      <div className="grid gap-4  grid-cols-1   sm:grid-cols-2  md:grid-cols-3  lg:grid-cols-3 space-y-8 ">
+    <div className="w-full">
+      <div
+        className="grid gap-x-3 gap-y-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
+    place-items-center"
+      >
         {foods.map((food) => (
           <Card key={food._id} food={food} />
         ))}

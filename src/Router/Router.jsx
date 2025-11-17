@@ -5,6 +5,8 @@ import About from "../Pages/About";
 import Login from "../Pages/Login";
 import Errorpage from "../Components/Errorpage";
 import Registar from "../Pages/Registar";
+import MyReviews from "../Pages/MyReviews";
+import AddReview from "../Pages/AddReview";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
       {
         path: "/registar",
         element: <Registar></Registar>,
+      },
+      {
+        path: "/my-review",
+        element: <MyReviews></MyReviews>,
+      },
+      {
+        path: "/add-review",
+        element: <AddReview></AddReview>,
       },
       {
         path: "/*",

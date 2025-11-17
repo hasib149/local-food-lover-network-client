@@ -4,7 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
-  const { user, logout, loading } = useContext(AuthContex);
+  const { user, logout } = useContext(AuthContex);
   const navigate = useNavigate();
 
   const handlelogout = async () => {
@@ -26,7 +26,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `px-3 py-2 rounded-md text-gray-600 font-medium 
             hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
-              isActive ? "text-green-500" : ""
+              isActive ? "text-green-600" : ""
             }`
           }
         >
@@ -39,7 +39,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             `px-3 py-2 rounded-md text-gray-600 font-medium 
             hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
-              isActive ? "text-green-500" : ""
+              isActive ? "text-green-600" : ""
             }`
           }
         >
@@ -98,26 +98,30 @@ const Navbar = () => {
       <div className="navbar-end gap-2">
         {user ? (
           <>
-            <img
-              src={user.photoURL || "/default-user.png"}
-              alt={user.displayName || "User"}
-              className="w-10 h-10 rounded-full object-cover"
-            />
-            <button
-              onClick={handlelogout}
-              className=" px-4 py-2 
-          bg-white text-red-600 
-          font-semibold 
-          rounded-lg 
-          border border-green-600
-          shadow-sm 
-          transition-all duration-300
-          hover:bg-red-700 hover:text-white 
-          hover:border-red-700
-          hover:-translate-y-0.5"
-            >
-              Logout
-            </button>
+            <div className="dropdown dropdown-hover dropdown-end">
+              <div tabIndex={0} role="button" className="m-1">
+                <img
+                  src={user.photoURL || "/default-user.png"}
+                  alt={user.displayName || "User"}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+              </div>
+              <ul
+                tabIndex="-1"
+                className="dropdown-content menu bg-base-300 rounded-box z-1 w-52 p-2 pb-7 shadow-sm"
+              >
+                <li>
+                  <Link className="hover:bg-green-600 hover:text-white" to="/add-review">Add Review</Link>
+                </li>
+                <li>
+                  <Link className="hover:bg-green-600 hover:text-white" to="/my-review">My Reviews</Link>
+                </li>
+
+                <li>
+                  <button className="hover:bg-red-600 hover:text-white" onClick={handlelogout}>Logout</button>
+                </li>
+              </ul>
+            </div>
           </>
         ) : (
           <>
