@@ -49,7 +49,7 @@ const Card = ({ food }) => {
           </button>
 
           <Link
-            to="/view-details"
+            to={`/review-details/${food._id}`}
             className="px-3 py-1 bg-white text-green-700 font-semibold rounded-xl shadow-xl hover:bg-green-700 hover:text-white transform hover:-translate-y-1 transition-all duration-300"
           >
             View Details
