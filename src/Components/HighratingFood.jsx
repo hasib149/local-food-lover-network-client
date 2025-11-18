@@ -28,7 +28,7 @@ const HighratingFood = () => {
   return (
     <div className="w-full">
       <div
-        className="grid gap-x-3 gap-y-12 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
+        className="grid gap-x-3 gap-y-16 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
     place-items-center"
       >
         {foods.map((food) => (

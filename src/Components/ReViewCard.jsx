@@ -13,9 +13,9 @@ const ReViewCard = ({ review }) => {
   } = review;
 
   return (
-    <div className="max-w-sm bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300">
+    <div className="max-w-sm bg-white rounded-xl shadow-lg overflow-hiddentransform transition-all duration-500 hover:scale-105 hover:shadow-xl">
       <img
-        className="w-full h-48 object-cover"
+        className="w-full h-48 object-cover rounded-t-xl"
         src={foodImage}
         alt={foodName}
       />

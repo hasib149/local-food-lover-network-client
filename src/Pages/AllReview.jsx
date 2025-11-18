@@ -19,7 +19,7 @@ const AllReview = () => {
         Explore review
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-6 mx-auto w-11/12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-8 py-6 mx-auto w-11/12">
         {data.map((review) => (
           <ReViewCard key={review._id} review={review}></ReViewCard>
         ))}
