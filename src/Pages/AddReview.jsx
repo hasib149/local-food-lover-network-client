@@ -45,7 +45,6 @@ const AddReview = () => {
           Add New Model
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* Food Name */}
           <div>
             <label className="label font-medium text-green-700 pb-2">
               Food Name
@@ -59,7 +58,6 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Food Image URL */}
           <div>
             <label className="label font-medium text-green-700 pb-2">
               Food Image URL
@@ -73,7 +71,6 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Restaurant Name */}
           <div>
             <label className="label font-medium text-green-700 pb-2">
               Restaurant Name
@@ -87,7 +84,6 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Location */}
           <div>
             <label className="label font-medium text-green-700 pb-2">
               Location
@@ -101,7 +97,6 @@ const AddReview = () => {
             />
           </div>
 
-          {/* Star Rating */}
           <div>
             <label className="label font-medium text-green-700 pb-2">
               Star Rating
@@ -122,7 +117,6 @@ const AddReview = () => {
             </select>
           </div>
 
-          {/* Review Text */}
           <div>
             <label className="label font-medium text-green-700 pb-2">
               Review Text
@@ -136,7 +130,6 @@ const AddReview = () => {
             ></textarea>
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
