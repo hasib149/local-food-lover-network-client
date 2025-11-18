@@ -9,11 +9,13 @@ import MyReviews from "../Pages/MyReviews";
 import AddReview from "../Pages/AddReview";
 import ProtectedRoute from "../Components/ProtectedRoute";
 import AllReview from "../Pages/AllReview";
+import Loader from "../Components/Loader";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    hydrateFallbackElement: <Loader></Loader>,
     children: [
       {
         index: true,
@@ -31,6 +33,7 @@ const router = createBrowserRouter([
         path: "/registar",
         element: <Registar></Registar>,
       },
+
       {
         path: "/all-review",
         element: <AllReview></AllReview>,
