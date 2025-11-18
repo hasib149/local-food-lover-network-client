@@ -46,6 +46,19 @@ const Navbar = () => {
           About
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/all-review"
+          className={({ isActive }) =>
+            `px-3 py-2 rounded-md text-gray-600 font-medium 
+            hover:text-green-500 hover:bg-transparent transition-colors duration-200 text-xl ${
+              isActive ? "text-green-600" : ""
+            }`
+          }
+        >
+          All-Review
+        </NavLink>
+      </li>
     </>
   );
 

@@ -8,6 +8,7 @@ import Registar from "../Pages/Registar";
 import MyReviews from "../Pages/MyReviews";
 import AddReview from "../Pages/AddReview";
 import ProtectedRoute from "../Components/ProtectedRoute";
+import AllReview from "../Pages/AllReview";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
       {
         path: "/registar",
         element: <Registar></Registar>,
+      },
+      {
+        path: "/all-review",
+        element: <AllReview></AllReview>,
+        loader: () =>
+          fetch("http://localhost:3000/review").then((res) => res.json()),
       },
       {
         path: "/my-review",

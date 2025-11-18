@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const Card = ({ food }) => {
+  const navigate = useNavigate();
   return (
     <div>
       <div className="relative flex w-80 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
@@ -40,12 +41,12 @@ const Card = ({ food }) => {
         </div>
 
         <div className="p-6 pt-0 flex gap-4 justify-between">
-          <Link
-            to="/Show All"
+          <button
+            onClick={() => navigate("/all-review")}
             className="px-3 py-1  bg-white text-green-700 font-semibold rounded-xl shadow-xl hover:bg-green-700 hover:text-white transform hover:-translate-y-1 transition-all duration-300"
           >
             Show All
-          </Link>
+          </button>
 
           <Link
             to="/view-details"
