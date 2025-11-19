@@ -1,6 +1,8 @@
 import React from "react";
 
 const Tabile = ({ reviews }) => {
+
+    
   return (
     <div className="p-6">
       <div className="overflow-hidden rounded-xl shadow-md border">
