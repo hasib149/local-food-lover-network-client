@@ -25,7 +25,7 @@ const Login = () => {
     try {
       await loginWithGoogle();
       toast.success("Login with Google successful!");
-      navigate("/");
+      navigate(redirect, { replace: true });
     } catch (error) {
       toast.error(error.message);
     }

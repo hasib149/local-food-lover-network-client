@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { useNavigate } from "react-router";
 import { AuthContex } from "../Contex/AuthContex";
+import { toast } from "react-toastify";
 
 const AddReview = () => {
   const navigate = useNavigate();
   const { user } = useContext(AuthContex);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -31,8 +32,8 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("Successfully saved:", data);
         navigate("/all-review");
+        toast.success("Your review has been successfully added!");
       })
       .catch((error) => {
         console.error("Error while saving data:", error);
