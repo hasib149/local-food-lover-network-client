@@ -76,11 +76,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/edit-review/:id",
-        element: (
-          <ProtectedRoute>
-            <EditReview></EditReview>
-          </ProtectedRoute>
-        ),
+        element: <EditReview></EditReview>,
         loader: ({ params }) =>
           fetch(`http://localhost:3000/reviewUser/${params.id}`).then((res) =>
             res.json()
