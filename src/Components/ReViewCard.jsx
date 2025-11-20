@@ -38,6 +38,7 @@ const ReViewCard = ({ review }) => {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setIsFavorite(true);
         toast.success("Your favorite has been successfully added!");
       })
