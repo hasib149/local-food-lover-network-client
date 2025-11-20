@@ -11,6 +11,7 @@ import ProtectedRoute from "../Components/ProtectedRoute";
 import AllReview from "../Pages/AllReview";
 import Loader from "../Components/Loader";
 import ReviewDetails from "../Pages/ReviewDetails";
+import EditReview from "../Pages/EditReview";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,18 @@ const router = createBrowserRouter([
             <AddReview></AddReview>
           </ProtectedRoute>
         ),
+      },
+      {
+        path: "/edit-review/:id",
+        element: (
+          <ProtectedRoute>
+            <EditReview></EditReview>
+          </ProtectedRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/reviewUser/${params.id}`).then((res) =>
+            res.json()
+          ),
       },
       {
         path: "/*",

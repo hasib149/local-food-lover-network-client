@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
 
 const Tabile = ({ reviews }) => {
@@ -69,9 +70,12 @@ const Tabile = ({ reviews }) => {
                 <td className="p-4 text-gray-600">{r.reviewDate}</td>
 
                 <td className="p-4 flex gap-3">
-                  <button className="px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 shadow-sm">
+                  <Link
+                    to={`/edit-review/${r._id}`}
+                    className="px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 shadow-sm"
+                  >
                     Edit
-                  </button>
+                  </Link>
 
                   <button
                     onClick={() => handleDelete(r._id)}
