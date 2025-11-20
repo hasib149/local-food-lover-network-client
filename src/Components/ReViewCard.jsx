@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
+import { AuthContex } from "../Contex/AuthContex";
 
 const ReViewCard = ({ review }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const { user } = useContext(AuthContex);
   const {
     reviewDate,
-    userEmail,
     reviewText,
     starRating,
     location,
@@ -15,7 +16,8 @@ const ReViewCard = ({ review }) => {
     foodImage,
     foodName,
   } = review;
-
+  const userEmail = user?.email;
+  console.log(user);
   const handleheartClick = () => {
     const favoriteData = {
       foodName,
