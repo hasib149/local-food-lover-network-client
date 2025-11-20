@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const Tabile = ({ reviews }) => {
+  const [localReviews, setLocalReviews] = useState(reviews);
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/reviewUser/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log("Successfully saved:", data);
+            setLocalReviews(localReviews.filter((r) => r._id !== id));
 
-    
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          });
+      }
+    });
+  };
+
   return (
     <div className="p-6">
       <div className="overflow-hidden rounded-xl shadow-md border">
@@ -18,7 +50,7 @@ const Tabile = ({ reviews }) => {
           </thead>
 
           <tbody className="divide-y">
-            {reviews.map((r) => (
+            {localReviews.map((r) => (
               <tr
                 key={r._id}
                 className="hover:bg-gray-50 transition-all duration-150"
@@ -41,7 +73,10 @@ const Tabile = ({ reviews }) => {
                     Edit
                   </button>
 
-                  <button className="px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-sm">
+                  <button
+                    onClick={() => handleDelete(r._id)}
+                    className="px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-sm"
+                  >
                     Delete
                   </button>
                 </td>
