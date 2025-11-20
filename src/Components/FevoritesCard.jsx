@@ -1,10 +1,11 @@
 import React from "react";
 
 const FavoritesCard = ({ reviews }) => {
+  console.log(reviews);
   return (
     <>
       <div
-        className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
+        className="grid gap-5 py-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 
     place-items-center w-11/12 mx-auto"
       >
         {reviews.map((review) => (

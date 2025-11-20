@@ -13,7 +13,6 @@ const MyFevorites = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        console.log(data);
         setLoading(false);
       });
   }, [user]);
@@ -28,7 +27,7 @@ const MyFevorites = () => {
 
   return (
     <div>
-        
+
       <FevoritesCard reviews={reviews}></FevoritesCard>
     </div>
   );
