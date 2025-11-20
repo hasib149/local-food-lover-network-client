@@ -12,6 +12,7 @@ import AllReview from "../Pages/AllReview";
 import Loader from "../Components/Loader";
 import ReviewDetails from "../Pages/ReviewDetails";
 import EditReview from "../Pages/EditReview";
+import MyFevorites from "../Pages/MyFevorites";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoute>
             <AddReview></AddReview>
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/my-fevorites",
+        element: (
+          <ProtectedRoute>
+            <MyFevorites></MyFevorites>
           </ProtectedRoute>
         ),
       },

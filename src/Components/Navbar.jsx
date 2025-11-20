@@ -63,7 +63,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 border-b border-green-300 w-11/12 mx-auto">
+    <div className="navbar bg-base-100  border-b border-green-300 w-11/12 mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -124,14 +124,37 @@ const Navbar = () => {
                 className="dropdown-content menu bg-base-300 rounded-box z-1 w-52 p-2 pb-7 shadow-sm"
               >
                 <li>
-                  <Link className="hover:bg-green-600 hover:text-white" to="/add-review">Add Review</Link>
+                  <Link
+                    className="hover:bg-green-600 hover:text-white"
+                    to="/add-review"
+                  >
+                    Add Review
+                  </Link>
                 </li>
                 <li>
-                  <Link className="hover:bg-green-600 hover:text-white" to="/my-review">My Reviews</Link>
+                  <Link
+                    className="hover:bg-green-600 hover:text-white"
+                    to="/my-review"
+                  >
+                    My Reviews
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:bg-green-600 hover:text-white"
+                    to="/my-fevorites"
+                  >
+                    My Fevorites
+                  </Link>
                 </li>
 
                 <li>
-                  <button className="hover:bg-red-600 hover:text-white" onClick={handlelogout}>Logout</button>
+                  <button
+                    className="hover:bg-red-600 hover:text-white"
+                    onClick={handlelogout}
+                  >
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>

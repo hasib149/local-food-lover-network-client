@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaHeart, FaRegHeart } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const ReViewCard = ({ review }) => {
+  const [isFavorite, setIsFavorite] = useState(false);
   const {
     reviewDate,
     userEmail,
@@ -12,18 +15,58 @@ const ReViewCard = ({ review }) => {
     foodName,
   } = review;
 
+  const handleheartClick = () => {
+    const favoriteData = {
+      foodName,
+      restaurantName,
+      location,
+      starRating,
+      reviewText,
+      foodImage,
+      reviewDate,
+      userEmail,
+    };
+    fetch("http://localhost:3000/favorites", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(favoriteData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsFavorite(true);
+        toast.success("Your favorite has been successfully added!");
+      })
+      .catch((error) => {
+        console.error("Error while saving data:", error);
+      });
+  };
+
   return (
-    <div className="max-w-sm bg-white rounded-xl shadow-lg overflow-hiddentransform transition-all duration-500 hover:scale-105 hover:shadow-xl">
+    <div className="max-w-sm bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-xl">
       <img
         className="w-full h-48 object-cover rounded-t-xl"
         src={foodImage}
         alt={foodName}
       />
+
       <div className="p-6">
-        <h2 className="text-xl font-semibold text-green-700">{foodName}</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold text-green-700">{foodName}</h2>
+          <p onClick={handleheartClick}>
+            {isFavorite ? (
+              <FaHeart className="text-red-600 text-xl cursor-pointer" />
+            ) : (
+              <FaRegHeart className="text-red-500 text-xl cursor-pointer" />
+            )}
+          </p>
+        </div>
+
         <p className="text-gray-500 text-sm mb-2">
           {restaurantName} - {location}
         </p>
+
         <div className="flex items-center mb-2">
           {Array.from({ length: 5 }).map((_, i) => (
             <svg
@@ -38,8 +81,10 @@ const ReViewCard = ({ review }) => {
             </svg>
           ))}
         </div>
+
         <p className="text-gray-700 mb-4">{reviewText}</p>
-        <div className="flex justify-between text-sm text-gray-400">
+
+        <div className="flex justify-between text-sm text-gray-600">
           <span>{userEmail}</span>
           <span>{new Date(reviewDate).toLocaleDateString()}</span>
         </div>
