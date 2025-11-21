@@ -39,7 +39,7 @@ const Login = () => {
         </div>
       )}
 
-      <div className="max-w-md w-full  bg-gradient-to-b from-white to-[#e6f9ec] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)] relative z-10">
+      <div className="max-w-md w-full  bg-linear-to-b from-white to-[#e6f9ec] rounded-3xl p-8 border-4 border-white shadow-[0_30px_30px_-20px_rgba(133,189,215,0.88)] relative z-10">
         <h2 className="text-center text-3xl font-extrabold text-green-600">
           Sign In
         </h2>
@@ -84,7 +84,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full mt-5 py-3 rounded-2xl  bg-gradient-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full mt-5 py-3 rounded-2xl  bg-linear-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? "Logging in..." : "Log In"}
           </button>
@@ -97,7 +97,7 @@ const Login = () => {
               type="button"
               onClick={handleGoogleLogin}
               disabled={loading}
-              className="w-full py-3 rounded-2xl bg-gradient-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 rounded-2xl bg-linear-to-r from-[#16a34a] to-[#0e7a32] text-white font-bold shadow-md hover:scale-105 transform transition-transform flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span>{loading ? "Please wait..." : "Continue with Google"}</span>
             </button>

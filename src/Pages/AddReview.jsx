@@ -43,7 +43,7 @@ const AddReview = () => {
     <div className="card border py-5  border-gray-200 bg-base-100 w-full max-w-md mx-auto shadow-2xl rounded-2xl">
       <div className="card-body p-6 relative ">
         <h2 className="text-2xl font-bold text-center text-green-700 mb-6">
-          Add New Model
+          Add New Review
         </h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>

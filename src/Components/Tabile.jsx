@@ -100,14 +100,32 @@ const Tabile = ({ reviews }) => {
                   <div className="flex gap-3 mt-2 md:mt-0 ">
                     <Link
                       to={`/edit-review/${r._id}`}
-                      className="px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 shadow-sm"
+                      className=" px-5 py-2 
+          bg-white text-green-700 
+          font-semibold 
+          rounded-lg 
+          border border-green-600
+          shadow-sm 
+          transition-all duration-300
+          hover:bg-blue-600 hover:text-white 
+          hover:border-green-700
+          hover:-translate-y-0.5"
                     >
                       Edit
                     </Link>
 
                     <button
                       onClick={() => handleDelete(r._id)}
-                      className="px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-sm"
+                      className=" px-6 py-2 
+          bg-white text-green-700 
+          font-semibold 
+          rounded-lg 
+          border border-green-600
+          shadow-sm 
+          transition-all duration-300
+          hover:bg-red-600 hover:text-white 
+          hover:border-green-700
+          hover:-translate-y-0.5"
                     >
                       Delete
                     </button>
