@@ -9,7 +9,9 @@ const HighratingFood = () => {
   useEffect(() => {
     const fetchTopFoods = async () => {
       try {
-        const res = await fetch("http://localhost:3000/high-rating-food");
+        const res = await fetch(
+          "https://local-food-lover-network-puce.vercel.app/high-rating-food"
+        );
         const data = await res.json();
         setFoods(data);
       } catch (error) {

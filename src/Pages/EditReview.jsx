@@ -16,13 +16,16 @@ const EditReview = () => {
     };
     console.log(formData);
 
-    fetch(`http://localhost:3000/reviewUser/${review._id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    })
+    fetch(
+      `https://local-food-lover-network-puce.vercel.app/reviewUser/${review._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log("Successfully saved:", data);

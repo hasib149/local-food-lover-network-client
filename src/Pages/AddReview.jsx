@@ -23,7 +23,7 @@ const AddReview = () => {
       reviewDate: new Date(),
     };
 
-    fetch("http://localhost:3000/review", {
+    fetch("https://local-food-lover-network-puce.vercel.app/review", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

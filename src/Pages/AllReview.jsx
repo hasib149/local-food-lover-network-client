@@ -14,7 +14,9 @@ const AllReview = () => {
     const search_text = e.target.searchfield.value;
     setLoading(true);
     console.log(search_text);
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(
+      `https://local-food-lover-network-puce.vercel.app/search?search=${search_text}`
+    )
       .then((res) => res.json())
       .then((data) => setSearch(data))
       .finally(() => setLoading(false));

@@ -9,7 +9,9 @@ const MyFevorites = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/favorites?email=${user.email}`)
+    fetch(
+      `https://local-food-lover-network-puce.vercel.app/favorites?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
@@ -27,7 +29,6 @@ const MyFevorites = () => {
 
   return (
     <div>
-
       <FevoritesCard reviews={reviews}></FevoritesCard>
     </div>
   );

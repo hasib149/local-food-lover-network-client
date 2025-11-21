@@ -9,7 +9,9 @@ const MyReviews = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/reviewUser?email=${user.email}`)
+    fetch(
+      `https://local-food-lover-network-puce.vercel.app/reviewUser?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

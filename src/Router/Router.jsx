@@ -28,7 +28,9 @@ const router = createBrowserRouter([
         path: "/review-details/:id",
         element: <ReviewDetails></ReviewDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/high-rating-food/${params.id}`),
+          fetch(
+            `https://local-food-lover-network-puce.vercel.app/high-rating-food/${params.id}`
+          ),
       },
 
       {
@@ -48,7 +50,9 @@ const router = createBrowserRouter([
         path: "/all-review",
         element: <AllReview></AllReview>,
         loader: () =>
-          fetch("http://localhost:3000/review").then((res) => res.json()),
+          fetch("https://local-food-lover-network-puce.vercel.app/review").then(
+            (res) => res.json()
+          ),
       },
       {
         path: "/my-review",
@@ -78,9 +82,9 @@ const router = createBrowserRouter([
         path: "/edit-review/:id",
         element: <EditReview></EditReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/reviewUser/${params.id}`).then((res) =>
-            res.json()
-          ),
+          fetch(
+            `https://local-food-lover-network-puce.vercel.app/reviewUser/${params.id}`
+          ).then((res) => res.json()),
       },
       {
         path: "/*",

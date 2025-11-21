@@ -29,7 +29,7 @@ const ReViewCard = ({ review }) => {
       reviewDate,
       userEmail,
     };
-    fetch("http://localhost:3000/favorites", {
+    fetch("https://local-food-lover-network-puce.vercel.app/favorites", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
