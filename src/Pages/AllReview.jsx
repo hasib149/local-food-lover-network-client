@@ -25,7 +25,7 @@ const AllReview = () => {
   }
   return (
     <div>
-      <div className="text-4xl text-green-700 pt-5 text-center font-bold">
+      <div className="text-4xl text-green-700 pt-5 text-center font-bold w-11/12 mx-auto">
         All Review
       </div>
       <p className=" text-center mb-10 font-semibold text-green-800">
@@ -34,7 +34,7 @@ const AllReview = () => {
       {/* search */}
       <form
         onSubmit={handlesearch}
-        className="flex justify-center items-center gap-1.5"
+        className="flex justify-center items-center gap-1.5 "
       >
         <label className="flex items-center border-2 border-green-500 rounded-lg px-3 py-2 w-full max-w-sm focus-within:ring-1 focus-within:ring-green-400">
           <svg
@@ -64,7 +64,7 @@ const AllReview = () => {
         </label>
         <button
           className="
-          px-4 py-2 
+           px-5 py-2 
           bg-white text-green-700 
           font-semibold 
           rounded-lg 

@@ -43,14 +43,32 @@ const Card = ({ food }) => {
         <div className="p-6 pt-0 flex gap-4 justify-between">
           <button
             onClick={() => navigate("/all-review")}
-            className="px-3 py-1  bg-white text-green-700 font-semibold rounded-xl shadow-xl hover:bg-green-700 hover:text-white transform hover:-translate-y-1 transition-all duration-300"
+            className=" px-4 py-1.5 
+          bg-white text-green-700 
+          font-semibold 
+          rounded-lg 
+          border border-green-600
+          shadow-sm 
+          transition-all duration-300
+          hover:bg-green-700 hover:text-white 
+          hover:border-green-700
+          hover:-translate-y-0.5"
           >
             Show All
           </button>
 
           <Link
             to={`/review-details/${food._id}`}
-            className="px-3 py-1 bg-white text-green-700 font-semibold rounded-xl shadow-xl hover:bg-green-700 hover:text-white transform hover:-translate-y-1 transition-all duration-300"
+            className=" px-4 py-1.5 
+          bg-white text-green-700 
+          font-semibold 
+          rounded-lg 
+          border border-green-600
+          shadow-sm 
+          transition-all duration-300
+          hover:bg-green-700 hover:text-white 
+          hover:border-green-700
+          hover:-translate-y-0.5"
           >
             View Details
           </Link>

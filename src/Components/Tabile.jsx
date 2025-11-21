@@ -37,10 +37,10 @@ const Tabile = ({ reviews }) => {
   };
 
   return (
-    <div className="p-6">
-      <div className="overflow-hidden rounded-xl shadow-md border border-green-600">
-        <table className="w-full text-left">
-          <thead className="bg-gray-200 text-gray-700">
+    <div className="p-4">
+      <div className="overflow-x-auto rounded-xl shadow-md border border-green-600">
+        <table className="min-w-full text-left">
+          <thead className="bg-gray-200 text-gray-700 hidden md:table-header-group">
             <tr>
               <th className="p-4 font-semibold text-green-700">Image</th>
               <th className="p-4 font-semibold text-green-700">Food Name</th>
@@ -54,33 +54,64 @@ const Tabile = ({ reviews }) => {
             {localReviews.map((r) => (
               <tr
                 key={r._id}
-                className="hover:bg-green-200 transition-all duration-150"
+                className="md:table-row block border-b hover:bg-green-100 transition-all duration-150"
               >
-                <td className="p-4">
+                {/* Image */}
+                <td className="p-4 flex items-center md:table-cell ">
+                  <span className="md:hidden font-semibold text-green-700">
+                    Image:
+                  </span>
                   <img
                     src={r.foodImage}
-                    className="w-14 h-14 rounded-lg object-cover shadow-sm"
+                    className="w-16 h-16 rounded-lg object-cover shadow-sm ml-2 md:ml-0"
                   />
                 </td>
 
-                <td className=" p-4 font-medium text-gray-800">{r.foodName}</td>
-                <td className=" p-4 text-gray-600">{r.restaurantName}</td>
-                <td className=" p-4 text-gray-600">{r.reviewDate}</td>
+                {/* Food Name */}
+                <td className="p-4 font-medium text-gray-800 md:table-cell block">
+                  <span className="md:hidden font-semibold text-green-700">
+                    Food Name:
+                  </span>
+                  {r.foodName}
+                </td>
 
-                <td className=" p-4 flex gap-3">
-                  <Link
-                    to={`/edit-review/${r._id}`}
-                    className="px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 shadow-sm"
-                  >
-                    Edit
-                  </Link>
+                {/* Restaurant */}
+                <td className="p-4 text-gray-600 md:table-cell block">
+                  <span className="md:hidden font-semibold text-green-700">
+                    Restaurant:
+                  </span>
+                  {r.restaurantName}
+                </td>
 
-                  <button
-                    onClick={() => handleDelete(r._id)}
-                    className="px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-sm"
-                  >
-                    Delete
-                  </button>
+                {/* Posted Date */}
+                <td className="p-4 text-gray-600 md:table-cell block">
+                  <span className="md:hidden font-semibold text-green-700">
+                    Posted Date:
+                  </span>
+                  {r.reviewDate}
+                </td>
+
+                {/* Actions */}
+                <td className="p-4 flex gap-3 md:table-cell items-center">
+                  <span className="md:hidden font-semibold text-green-700">
+                    Actions:
+                  </span>
+
+                  <div className="flex gap-3 mt-2 md:mt-0 ">
+                    <Link
+                      to={`/edit-review/${r._id}`}
+                      className="px-3 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 shadow-sm"
+                    >
+                      Edit
+                    </Link>
+
+                    <button
+                      onClick={() => handleDelete(r._id)}
+                      className="px-3 py-1 rounded-lg bg-red-500 text-white hover:bg-red-600 shadow-sm"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}

@@ -78,8 +78,8 @@ const About = () => {
   `;
 
   return (
-    <div className="w-full bg-linear-to-t from-green-100 to-green-50 pb-10"  style={{ marginTop: '0px' }}>
-      <h2 className="text-4xl font-bold text-center py-5 text-green-700">
+    <div className="w-full bg-linear-to-t from-green-100 to-green-50 pb-8"  style={{ marginTop: '0px' }}>
+      <h2 className="text-4xl font-bold text-center py-6 text-green-700">
         Meet Our Super Reviewers
       </h2>
 
